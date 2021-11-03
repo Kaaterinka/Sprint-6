@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Address book</title>
+</head>
+<body>
+
+<form>
+    <p th:text="'Surname: ' + ${currentNote.surname}"/>
+    <p th:text="'Name: ' + ${currentNote.name}"/>
+    <p th:text="'Email: ' + ${currentNote.email}"/>
+    <p th:text="'Phone number: ' + ${currentNote.phone}"/>
+</form>
+
+</body>
+</html>

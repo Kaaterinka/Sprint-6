@@ -9,30 +9,31 @@ import java.util.concurrent.ConcurrentHashMap
 
 @RestController
 @RequestMapping("/api")
-class ControllerREST @Autowired constructor(val service:Service) {
+class ControllerREST @Autowired constructor(val service: Service) {
 
     @PostMapping("/add")
-    fun create(@RequestBody addressBook: AddressBook){
-       return service.addAddress(addressBook)
+    fun create(@RequestBody addressBook: AddressBook) {
+        return service.addAddress(addressBook)
     }
 
     @GetMapping("/list")
-    fun show(@RequestParam(required = false) query: Map<String, String>):ConcurrentHashMap<Int, AddressBook>{
+    fun show(@RequestParam(required = false) query: Map<String, String>): ConcurrentHashMap<Int, AddressBook> {
         return service.showAll(query)
     }
 
     @GetMapping("/{id}/view")
-    fun view(@PathVariable id:Int):AddressBook?{
+    fun view(@PathVariable id: Int): AddressBook? {
         return service.findById(id)
     }
 
-    @PatchMapping("{id}/edit")
-    fun edit(@PathVariable id:Int, @RequestBody addressBook: AddressBook){
-        return service.update(id, addressBook)
+    @PutMapping("{id}/edit")
+    fun edit(@PathVariable id: Int, @RequestBody addressBook: AddressBook): AddressBook? {
+        service.update(id, addressBook)
+        return service.findById(id)
     }
 
     @DeleteMapping("/{id}/delete")
-    fun delete(@PathVariable id:Int){
+    fun delete(@PathVariable id: Int) {
         return service.delete(id)
     }
 }

@@ -29,10 +29,10 @@ class Service {
     }
 
     fun update(id: Int, address: AddressBook) {
-        addressBook[id]=address
+        addressBook[id] = address
     }
 
-    fun delete(id:Int){
+    fun delete(id: Int) {
         addressBook.remove(id)
     }
 }

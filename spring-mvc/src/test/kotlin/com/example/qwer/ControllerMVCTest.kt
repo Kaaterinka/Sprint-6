@@ -64,8 +64,6 @@ internal class ControllerMVCTest {
         mockMvc.perform(get("/app/0/edit"))
             .andExpect(status().isOk)
             .andExpect(view().name("update"))
-
-
     }
 
     @Test
